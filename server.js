@@ -2,8 +2,8 @@
 var prerender = require('./lib');
 
 var server = prerender({
-    workers: process.env.PRERENDER_NUM_WORKERS,
-    iterations: process.env.PRERENDER_NUM_ITERATIONS
+    workers: 1,
+    iterations: 40
 });
 
 
@@ -16,5 +16,6 @@ server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 // server.use(prerender.s3HtmlCache());
+server.use(prerender.redisCache())
 
 server.start();
