@@ -16,6 +16,6 @@ server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 // server.use(prerender.s3HtmlCache());
-server.use(prerender.redisCache())
-
+// server.use(prerender.redisCache())
+server.use(prerender.esCache())
 server.start();
